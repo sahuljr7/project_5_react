@@ -1,0 +1,226 @@
+.counter-container {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  margin: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.class-counter {
+  border-left: 6px solid #e74c3c;
+}
+
+.function-counter {
+  border-left: 6px solid #3498db;
+}
+
+.counter-container h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.counter-display {
+  text-align: center;
+  margin-bottom: 25px;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  color: white;
+}
+
+.count-value {
+  font-size: 3.5rem;
+  font-weight: bold;
+  display: block;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.previous-count {
+  font-size: 1rem;
+  opacity: 0.8;
+  font-style: italic;
+}
+
+.step-control {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.step-control label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-right: 10px;
+}
+
+.step-input {
+  padding: 8px 12px;
+  border: 2px solid #bdc3c7;
+  border-radius: 6px;
+  font-size: 16px;
+  width: 80px;
+  text-align: center;
+}
+
+.step-input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.counter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 80px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #2980b9, #2573a7);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+}
+
+.btn-danger:hover {
+  background: linear-gradient(135deg, #c0392b, #a93226);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, #7f8c8d, #727f80);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(149, 165, 166, 0.4);
+}
+
+.counter-history {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.counter-history h4 {
+  margin-top: 0;
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+.counter-history ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.counter-history li {
+  padding: 8px 12px;
+  margin-bottom: 5px;
+  background: white;
+  border-radius: 4px;
+  border-left: 3px solid #3498db;
+  font-size: 0.9rem;
+}
+
+.lifecycle-info {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.lifecycle-info h4 {
+  margin-top: 0;
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+.lifecycle-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lifecycle-info li {
+  padding: 5px 0;
+  color: #27ae60;
+  font-size: 0.9rem;
+}
+
+/* Comparison container */
+.comparison-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .comparison-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .counter-container {
+    margin: 10px;
+    padding: 20px;
+  }
+  
+  .counter-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn {
+    width: 200px;
+  }
+}
+
+/* Animation for count changes */
+@keyframes countChange {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.count-value {
+  transition: all 0.3s ease;
+}
+
+.count-value.changing {
+  animation: countChange 0.3s ease;
+}
