@@ -1,29 +1,39 @@
+// Import React and the two counter components we built earlier
 import React from 'react';
-import ClassCounter from './ClassCounter';
-import FunctionCounter from './FunctionCounter';
-import './Counter.css';
+import ClassCounter from './ClassCounter';        // Class-based counter component
+import FunctionCounter from './FunctionCounter';  // Functional counter component
+import './Counter.css';                           // Importing CSS file for styling
 
+// Main App Component - this is the root of our small project
 const App = () => {
   return (
     <div className="App">
+      {/* Page Header Section */}
       <header style={{ 
         textAlign: 'center', 
         padding: '40px 20px', 
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', // Nice gradient background
         color: 'white',
         marginBottom: '40px'
       }}>
-        <h1 style={{ margin: 0, fontSize: '2.5rem' }}>React Components Comparison</h1>
+        {/* Main title */}
+        <h1 style={{ margin: 0, fontSize: '2.5rem' }}>
+          React Components Comparison
+        </h1>
+
+        {/* Subtitle / Description */}
         <p style={{ fontSize: '1.2rem', opacity: 0.9, margin: '10px 0 0 0' }}>
           Class Components vs Functional Components with Hooks
         </p>
       </header>
 
+      {/* Section that displays both counter types side by side */}
       <div className="comparison-container">
-        <ClassCounter />
-        <FunctionCounter />
+        <ClassCounter />     {/* Left side - old style React class component */}
+        <FunctionCounter />  {/* Right side - modern React functional component */}
       </div>
 
+      {/* Section below counters showing written comparison analysis */}
       <div style={{ 
         maxWidth: '800px', 
         margin: '40px auto', 
@@ -32,19 +42,22 @@ const App = () => {
         borderRadius: '12px',
         boxShadow: '0 4px 16px rgba(0,0,0,0.1)'
       }}>
-        <ComparisonWriteUp />
+        <ComparisonWriteUp /> {/* This component contains the comparison table and notes */}
       </div>
     </div>
   );
 };
 
+// This component explains and compares both component types
 const ComparisonWriteUp = () => (
   <div>
     <h2 style={{ textAlign: 'center', color: '#2c3e50', marginBottom: '30px' }}>
       Component Comparison Analysis
     </h2>
     
+    {/* Using grid layout for neat sections */}
     <div style={{ display: 'grid', gap: '30px' }}>
+      {/* Comparison for Class Components */}
       <ComparisonSection 
         title="Class Components"
         pros={[
@@ -61,6 +74,7 @@ const ComparisonWriteUp = () => (
         ]}
       />
       
+      {/* Comparison for Functional Components */}
       <ComparisonSection 
         title="Functional Components with Hooks"
         pros={[
@@ -77,17 +91,22 @@ const ComparisonWriteUp = () => (
         ]}
       />
       
+      {/* Detailed table comparing lifecycle methods and hook equivalents */}
       <LifecycleComparison />
     </div>
   </div>
 );
 
+// Reusable section that displays pros and cons side by side
 const ComparisonSection = ({ title, pros, cons }) => (
   <div>
     <h3 style={{ color: '#2c3e50', borderBottom: '2px solid #3498db', paddingBottom: '10px' }}>
       {title}
     </h3>
+
+    {/* Two-column grid: Advantages on left, Disadvantages on right */}
     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+      {/* Advantages */}
       <div>
         <h4 style={{ color: '#27ae60' }}>✅ Advantages</h4>
         <ul>
@@ -96,6 +115,8 @@ const ComparisonSection = ({ title, pros, cons }) => (
           ))}
         </ul>
       </div>
+
+      {/* Disadvantages */}
       <div>
         <h4 style={{ color: '#e74c3c' }}>❌ Disadvantages</h4>
         <ul>
@@ -108,11 +129,14 @@ const ComparisonSection = ({ title, pros, cons }) => (
   </div>
 );
 
+// Comparison table showing how lifecycle methods match with hooks
 const LifecycleComparison = () => (
   <div>
     <h3 style={{ color: '#2c3e50', borderBottom: '2px solid #3498db', paddingBottom: '10px' }}>
       Lifecycle Methods vs Hooks Comparison
     </h3>
+
+    {/* Simple HTML table comparing equivalent features */}
     <table style={{ width: '100%', borderCollapse: 'collapse' }}>
       <thead>
         <tr style={{ background: '#f8f9fa' }}>
@@ -122,6 +146,7 @@ const LifecycleComparison = () => (
         </tr>
       </thead>
       <tbody>
+        {/* Each row compares one lifecycle concept */}
         <tr>
           <td style={{ padding: '12px', border: '1px solid #ddd' }}>constructor</td>
           <td style={{ padding: '12px', border: '1px solid #ddd' }}>useState</td>
@@ -130,7 +155,7 @@ const LifecycleComparison = () => (
         <tr>
           <td style={{ padding: '12px', border: '1px solid #ddd' }}>componentDidMount</td>
           <td style={{ padding: '12px', border: '1px solid #ddd' }}>useEffect(() => {}, [])</td>
-          <td style={{ padding: '12px', border: '1px solid #ddd' }}>Run after mount</td>
+          <td style={{ padding: '12px', border: '1px solid #ddd' }}>Run after component mounts</td>
         </tr>
         <tr>
           <td style={{ padding: '12px', border: '1px solid #ddd' }}>componentDidUpdate</td>
@@ -152,4 +177,5 @@ const LifecycleComparison = () => (
   </div>
 );
 
+// Export the App component so it can be rendered on the web page
 export default App;
